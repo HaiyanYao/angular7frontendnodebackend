@@ -1,0 +1,30 @@
+<mat-sidenav-container class="example-container" *ngIf="shouldRun">
+  <mat-sidenav class="slider" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+               (closed)="events.push('close!')">
+    <br>
+    <p id='resource' (click)="onClick($event)">
+      <a [className]="htmlId == '/resource' ? 'red' : 'white'" routerLink='/resource'>&nbsp;&nbsp;&nbsp;Resource</a>
+    </p>
+    <p id='project' (click)="onClick($event)">
+      <a [className]="htmlId == '/project' ? 'red' : 'white'" routerLink='/project'>&nbsp;&nbsp;&nbsp;Project</a>
+    </p>
+    <p id='formula' (click)="onClick($event)">
+      <a [className]="htmlId == '/formula' ? 'red' : 'white'" routerLink='/formula'>&nbsp;&nbsp;&nbsp;Formula</a>
+    </p>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <p *ngIf="!opened"><button class="toggle-box" mat-button (click)="sidenav.toggle()">></button></p>
+    <p *ngIf="opened"><button class="toggle-box" mat-button (click)="sidenav.toggle()"><</button></p>
+    <!-- <p>Events:</p>
+    <div class="example-events">
+      <div *ngFor="let e of events">{{e}}</div>
+    </div> -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div> -->
+
+<!-- <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p> -->
+<!-- <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p> -->

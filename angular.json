@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular7node": {
+    "team-project": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular7node",
+            "outputPath": "dist/team-project",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": [],
@@ -58,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular7node:build"
+            "browserTarget": "team-project:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular7node:build:production"
+              "browserTarget": "team-project:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular7node:build"
+            "browserTarget": "team-project:build"
           }
         },
         "test": {
@@ -103,7 +104,7 @@
         }
       }
     },
-    "angular7node-e2e": {
+    "team-project-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -112,11 +113,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular7node:serve"
+            "devServerTarget": "team-project:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular7node:serve:production"
+              "devServerTarget": "team-project:serve:production"
             }
           }
         },
@@ -132,5 +133,5 @@
       }
     }
   },
-  "defaultProject": "angular7node"
+  "defaultProject": "team-project"
 }
